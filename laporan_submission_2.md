@@ -190,8 +190,7 @@ dengan struktur masing masing datasetnya memiliki ukuran yang berbeda
 
 ## Mendapatkan Rekomendasi Tempat Wisata
 
-![image](https://github.com/user-attachments/assets/4a03d673-e7e3-4e9f-a2ba-fc221fc22c88)
-![image](https://github.com/user-attachments/assets/2aa6b115-e445-4931-a7ae-53899097774d)
+![image](https://github.com/user-attachments/assets/ad7f7cc9-9b4d-4f82-91eb-76a2c27db831)
 
 Menampilkan hasil rekomendasi untuk beberapa user dari user ID
 
