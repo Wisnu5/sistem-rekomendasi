@@ -184,7 +184,14 @@ dengan struktur masing masing datasetnya memiliki ukuran yang berbeda
 
 ![image](https://github.com/user-attachments/assets/af62e189-4e76-4511-8883-dc66c6b45b63)
 
-5. Visualisasi metrik menggunakan RMSE
+## Evaluasi
+Metrik evaluasi yang digunakan menggunakan RMSE
+**RMSE** adalah akar kuadrat dari rata-rata kuadrat selisih antara nilai prediksi dan nilai aktual. Metrik ini mengukur seberapa besar rata-rata kesalahan kuadrat prediksi model, memberikan gambaran tentang seberapa jauh prediksi menyimpang dari data sebenarnya. 
+**Rumus**
+
+![image](https://github.com/user-attachments/assets/304a2057-aa65-4e48-bb3f-9f1070aa61d5)
+
+1. Visualisasi metrik menggunakan RMSE
 
 ![image](https://github.com/user-attachments/assets/e4834a6f-7476-4f8a-a0a6-1495ac5b2767)
 
@@ -199,8 +206,24 @@ Menampilkan hasil rekomendasi untuk beberapa user dari user ID
 ![image](https://github.com/user-attachments/assets/7f171548-cb15-44a9-b388-33b2c3e01692)
 
 
+## Kesimpulan Sistem Rekomendasi
+Proyek ini berhasil mengembangkan dua pendekatan sistem rekomendasi untuk destinasi wisata di Indonesia:
 
+Content-Based Filtering: Menggunakan teknik TF-IDF dan cosine similarity untuk menganalisis deskripsi destinasi wisata. Pendekatan ini efektif dalam merekomendasikan tempat-tempat yang memiliki kemiripan konten, seperti kategori dan lokasi, meskipun tanpa data interaksi pengguna sebelumnya.
 
+Collaborative Filtering berbasis Neural Network: Memanfaatkan embedding pengguna dan item dalam model neural network untuk menangkap preferensi pengguna berdasarkan histori interaksi. Pendekatan ini mampu memberikan rekomendasi yang lebih personal dan relevan, terutama ketika tersedia data interaksi yang cukup.
+
+Evaluasi menggunakan metrik RMSE menunjukkan bahwa model collaborative filtering dengan neural network memberikan performa yang lebih baik dalam memprediksi preferensi pengguna dibandingkan pendekatan content-based.
+
+Ke depan, sistem ini dapat dikembangkan lebih lanjut dengan:
+1. Menambahkan metadata seperti harga, rating, dan lokasi geografis untuk hybrid recommendation.
+2. Mengintegrasikan data real-time dari interaksi pengguna.
+3. Menggunakan model deep learning yang lebih kompleks seperti autoencoder atau Transformer-based recommender systems untuk akurasi lebih tinggi.
+
+## Referensi
+- M. F. Abdurrafi dan D. H. U. Ningsih, "Content-based filtering using cosine similarity algorithm for alternative selection on training programs," Journal of Soft Computing Exploration, vol. 4, no. 4, pp. 204-212, Desember 2023.[link](https://www.researchgate.net/publication/376963865_Content-based_filtering_using_cosine_similarity_algorithm_for_alternative_selection_on_training_programs?utm_source=chatgpt.com)
+- Kaggle Dataset – Indonesia Tourism Destination Dataset. Diakses dari: [Indonesia Tourism Destination](https://www.kaggle.com/datasets/aprabowo/indonesia-tourism-destination/data)
+- TensorFlow Documentation – Embedding Layer dan Neural Network for Recommendations: [https://www.tensorflow.org](https://www.tensorflow.org/s/results?q=Embedding%20Layer%20dan%20Neural%20Network%20for%20Recommendations)
 
 
 
