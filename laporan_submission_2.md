@@ -221,7 +221,7 @@ Ke depan, sistem ini dapat dikembangkan lebih lanjut dengan:
 3. Menggunakan model deep learning yang lebih kompleks seperti autoencoder atau Transformer-based recommender systems untuk akurasi lebih tinggi.
 
 ## Referensi
-- M. F. Abdurrafi dan D. H. U. Ningsih, "Content-based filtering using cosine similarity algorithm for alternative selection on training programs," Journal of Soft Computing Exploration, vol. 4, no. 4, pp. 204-212, Desember 2023.[link](https://www.researchgate.net/publication/376963865_Content-based_filtering_using_cosine_similarity_algorithm_for_alternative_selection_on_training_programs?utm_source=chatgpt.com)
+- M. F. Abdurrafi dan D. H. U. Ningsih, "Content-based filtering using cosine similarity algorithm for alternative selection on training programs," Journal of Soft Computing Exploration, vol. 4, no. 4, pp. 204-212, Desember 2023. [link](https://www.researchgate.net/publication/376963865_Content-based_filtering_using_cosine_similarity_algorithm_for_alternative_selection_on_training_programs?utm_source=chatgpt.com)
 - Kaggle Dataset – Indonesia Tourism Destination Dataset. Diakses dari: [Indonesia Tourism Destination](https://www.kaggle.com/datasets/aprabowo/indonesia-tourism-destination/data)
 - TensorFlow Documentation – Embedding Layer dan Neural Network for Recommendations: [https://www.tensorflow.org](https://www.tensorflow.org/s/results?q=Embedding%20Layer%20dan%20Neural%20Network%20for%20Recommendations)
 
