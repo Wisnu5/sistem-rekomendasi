@@ -116,10 +116,6 @@ dengan struktur masing masing datasetnya memiliki ukuran yang berbeda
 
 3. Melakukan fit lalu ditransformasikan ke bentuk matrix
 
-melakukan fit lalu ditransformasikan ke bentuk matrix
-
-3. Mengubah vektor tf-idf dalam bentuk matrix
-
 ![image](https://github.com/user-attachments/assets/7a3f90d1-450e-4a45-b58f-c2316ec0412a)
 
 4. Membuat dataframe untuk melihat tf-idf matrix
