@@ -197,28 +197,14 @@ melakukan fit lalu ditransformasikan ke bentuk matrix
 ![image](https://github.com/user-attachments/assets/4a03d673-e7e3-4e9f-a2ba-fc221fc22c88)
 ![image](https://github.com/user-attachments/assets/2aa6b115-e445-4931-a7ae-53899097774d)
 
-Showing recommendations for users: 45
-===========================
-Place with high ratings from user
---------------------------------
-Museum Taman Prasasti : Budaya
-Curug Dago : Cagar Alam
-Taman Film : Budaya
-Kampung Pelangi : Taman Hiburan
-Puncak Kebun Buah Mangunan : Taman Hiburan
---------------------------------
-Top 10 Place recommendation
---------------------------------
-Margasatwa Muara Angke : Cagar Alam
-Geoforest Watu Payung Turunan : Cagar Alam
-Kebun Teh Nglinggo : Cagar Alam
-Monumen Selamat Datang : Budaya
-Goa Pindul : Cagar Alam
-Pintoe Langit Dahromo : Cagar Alam
-Wisata Kraton Jogja : Budaya
-Kampung Cina : Budaya
-Museum Tekstil : Budaya
-Pasar Kebon Empring Bintaran : Pusat Perbelanjaan
+Menampilkan hasil rekomendasi untuk beberapa user dari user ID
+
+![image](https://github.com/user-attachments/assets/d22258b0-2f96-49aa-ad69-fc62c1eb5e79)
+![image](https://github.com/user-attachments/assets/f002ca37-8740-4c36-ad56-f402b040a66c)
+![image](https://github.com/user-attachments/assets/7f171548-cb15-44a9-b388-33b2c3e01692)
+
+
+
 
 
 
