@@ -1,25 +1,26 @@
 # Laporan Proyek Machine Learning Terapan 2 - Sistem Rekomendasi Tempat Wisata
 
-Wisnu Al Hussaeni - MC001D5Y1239
+**Wisnu Al Hussaeni - MC001D5Y1239**
 
 ## Project Overview
 Sektor pariwisata Indonesia menyimpan potensi ekonomi yang besar, namun banyak wisatawan kesulitan menemukan destinasi yang sesuai dengan minat dan kebutuhan mereka karena informasi yang tersebar dan tidak personal. Sistem rekomendasi berbasis machine learning menjadi solusi efektif untuk menyaring informasi dan menyarankan destinasi yang relevan dan menarik bagi setiap individu. Sistem ini tidak hanya meningkatkan kepuasan wisatawan, namun juga membantu destinasi wisata yang kurang dikenal mendapatkan eksposur yang lebih luas.
 
 ## Mengapa ini penting?
-1. Personalisasi konten menjadi krusial dalam pengambilan keputusan pengguna.
-2. Meningkatkan engagement pengguna terhadap platform wisata.
-3. Memberikan nilai tambah untuk sektor pariwisata digital Indonesia.
+- **Personalisasi**: Memberikan rekomendasi yang sesuai dengan preferensi individu meningkatkan pengalaman pengguna.
+- **Engagement**: Meningkatkan interaksi pengguna dengan platform wisata.
+- **Promosi destinasi**: Membantu destinasi wisata yang kurang populer mendapatkan eksposur lebih luas.
+- **Efisiensi**: Mengurangi waktu yang diperlukan wisatawan untuk menemukan destinasi yang cocok.
 
 ## Business Understanding
 ### Problem Statements
-1. Bagaimana menyarankan destinasi wisata yang relevan berdasarkan konten deskripsi atau nama tempat destinasi?
-2. Bagaimana mengidentifikasi preferensi pengguna dari data interaksi sebelumnya untuk memberikan rekomendasi personal?
-3. Bagaimana menyusun sistem rekomendasi yang mampu memberikan hasil yang relevan sekaligus efisien dalam waktu pencarian (rekomendasi top-N)?
+1. Bagaimana cara menyarankan destinasi wisata yang relevan berdasarkan deskripsi atau nama tempat wisata?
+2. Bagaimana cara mengidentifikasi preferensi pengguna dari riwayat interaksi untuk memberikan rekomendasi personal?
+3. Bagaimana cara membangun sistem rekomendasi *top-N* yang efisien dan akurat dalam memberikan hasil yang relevan?
 
 ### Goals
-1. Mengembangkan model content-based filtering menggunakan TF-IDF dan cosine similarity untuk menyarankan destinasi berdasarkan deskripsi atau nama tempat yang mirip.
-2. Membangun model collaborative filtering berbasis neural network embedding untuk menyarankan destinasi sesuai histori interaksi pengguna.
-3. Menghasilkan sistem rekomendasi top-N yang efisien dan akurat untuk digunakan dalam skenario nyata.
+1. Mengembangkan model *content-based filtering* menggunakan TF-IDF dan *cosine similarity* untuk merekomendas Caterikan destinasi berdasarkan kemiripan deskripsi atau kategori.
+2. Membangun model *collaborative filtering* berbasis *neural network embedding* untuk merekomendasikan destinasi berdasarkan riwayat interaksi pengguna.
+3. Menyusun sistem rekomendasi *top-N* yang akurat, efisien, dan dapat digunakan dalam skenario nyata.
 
 ### Solution Approach
 1. Memanfaatkan deskripsi destinasi wisata.
@@ -29,6 +30,52 @@ Sektor pariwisata Indonesia menyimpan potensi ekonomi yang besar, namun banyak w
 
 ## Data Understanding
 Dataset digunakan dari [Kaggle](https://www.kaggle.com/datasets/aprabowo/indonesia-tourism-destination/data)
+
+### 1. Dataset `user.csv`
+- **Jumlah Data**: 300 baris, 3 kolom
+- **Deskripsi Fitur**:
+  - `User_Id` (integer): Identifikasi unik untuk setiap pengguna. Nilai berkisar dari 1 hingga 300, tanpa duplikasi.
+  - `Location` (string): Lokasi pengguna, berupa kota dan provinsi (contoh: "Semarang, Jawa Tengah"). Terdapat 28 lokasi unik.
+  - `Age` (integer): Usia pengguna, berkisar antara 18 hingga 40 tahun.
+- **Kondisi Data**:
+  - Tidak ada nilai yang hilang (*missing values*).
+  - Tidak ada duplikasi data.
+  - Tidak ada outlier signifikan pada kolom `Age`, dengan distribusi usia yang cukup merata (lihat distribusi usia pada EDA).
+- **Penggunaan**: Dataset ini digunakan untuk memahami profil pengguna dan mendukung analisis preferensi berdasarkan lokasi dan usia.
+
+### 2. Dataset `tourism_rating.csv`
+- **Jumlah Data**: 10.000 baris, 3 kolom
+- **Deskripsi Fitur**:
+  - `User_Id` (integer): ID pengguna yang memberikan rating, merujuk ke `user.csv`.
+  - `Place_Id` (integer): ID destinasi wisata, merujuk ke `tourism_with_id.csv`.
+  - `Place_Ratings` (integer): Rating yang diberikan pengguna untuk destinasi, berkisar dari 1 hingga 5.
+- **Kondisi Data**:
+  - Tidak ada nilai yang hilang.
+  - Tidak ada duplikasi data.
+  - Distribusi rating menunjukkan variasi preferensi pengguna, dengan rating tertinggi (5) dan terendah (1) tersebar secara wajar.
+- **Penggunaan**: Dataset ini digunakan untuk membangun model *collaborative filtering* berdasarkan interaksi pengguna dengan destinasi wisata.
+
+### 3. Dataset `tourism_with_id.csv`
+- **Jumlah Data**: 437 baris, 12 kolom
+- **Deskripsi Fitur**:
+  - `Place_Id` (integer): Identifikasi unik untuk destinasi wisata.
+  - `Place_Name` (string): Nama destinasi wisata (contoh: "Monumen Yogya Kembali").
+  - `Description` (string): Deskripsi destinasi wisata.
+  - `Category` (string): Kategori destinasi, seperti "Budaya", "Bahari", "Taman Hiburan", dll.
+  - `City` (string): Kota tempat destinasi berada.
+  - `Price` (integer): Harga tiket masuk destinasi.
+  - `Rating` (float): Rata-rata rating destinasi.
+  - `Time_Minutes` (float): Durasi kunjungan rata-rata (dalam menit).
+  - `Coordinate` (string): Koordinat geografis destinasi.
+  - `Lat` (float): Latitude destinasi.
+  - `Long` (float): Longitude destinasi.
+  - `Unnamed: 11` (unknown): Kolom tanpa nama, tidak digunakan dalam analisis.
+- **Kondisi Data**:
+  - Terdapat nilai yang hilang pada kolom `Time_Minutes` (sekitar 50% data).
+  - Tidak ada duplikasi data.
+  - Kolom `Unnamed: 11` tidak relevan dan diabaikan.
+  - Distribusi harga tiket masuk bervariasi antar kota, dengan beberapa destinasi memiliki harga 0 (gratis).
+- **Penggunaan**: Dataset ini digunakan untuk *content-based filtering* (menggunakan kolom `Description` dan `Category`) dan untuk memberikan informasi tambahan tentang destinasi dalam rekomendasi.
 
 ![image](https://github.com/user-attachments/assets/72c824b6-c5e2-4ac4-acbc-cc3ed80a6a17)
 
@@ -166,6 +213,18 @@ dengan struktur masing masing datasetnya memiliki ukuran yang berbeda
 
 ![image](https://github.com/user-attachments/assets/8481ca77-d982-4ac4-8274-46329fc2a739)
 
+### 1. Content-Based Filtering
+- **Pendekatan**: Menggunakan TF-IDF untuk mengubah deskripsi destinasi menjadi vektor, lalu menghitung *cosine similarity* untuk menemukan destinasi yang mirip.
+- **Proses**:
+  - Inisialisasi `TfidfVectorizer` untuk mengonversi kolom `Description` ke matriks TF-IDF.
+  - Menghitung *cosine similarity* antar destinasi menggunakan matriks TF-IDF.
+  - Membuat fungsi rekomendasi yang menerima nama destinasi (contoh: "Air Mancur Menari") dan mengembalikan *top-N* destinasi dengan kemiripan tertinggi.
+- **Hasil**:
+  - Untuk destinasi "Air Mancur Menari", rekomendasi yang dihasilkan mencakup destinasi dengan deskripsi serupa, seperti taman hiburan atau destinasi dengan elemen air.
+  - Contoh output:
+    - Taman Srigunting: Budaya
+    - Taman Pelangi: Taman Hiburan
+    - Pantai Marina: Bahari
 
 ## Model Development dengan Collaborative Filtering
 1. Memuat data tour_rate
@@ -183,6 +242,26 @@ dengan struktur masing masing datasetnya memiliki ukuran yang berbeda
 4. Menggunakan batch_size=8, epoch=100, verbose=1
 
 ![image](https://github.com/user-attachments/assets/af62e189-4e76-4511-8883-dc66c6b45b63)
+
+### 2. Collaborative Filtering
+- **Pendekatan**: Menggunakan *neural network* dengan *embedding layer* untuk mempelajari representasi pengguna dan destinasi berdasarkan data rating.
+- **Struktur Model**:
+  - **Input**:
+    - *Embedding layer* untuk pengguna (dimensi: jumlah pengguna × 50).
+    - *Embedding layer* untuk destinasi (dimensi: jumlah destinasi × 50).
+  - **Lapisan**:
+    - Dua *embedding layer* untuk pengguna dan destinasi, diikuti oleh operasi *dot product* untuk menghitung skor prediksi.
+    - *Regularization* (L2) diterapkan untuk mencegah *overfitting*.
+    - Fungsi aktivasi sigmoid digunakan untuk menormalkan output ke rentang [0, 1].
+  - **Fungsi Loss**: Mean Squared Error (MSE) untuk mengukur perbedaan antara rating prediksi dan aktual.
+  - **Optimizer**: Adam dengan *learning rate* default.
+  - **Parameter Pelatihan**:
+    - *Batch size*: 8
+    - *Epochs*: 100
+    - *Verbose*: 1 (menampilkan progres pelatihan)
+- **Proses Pelatihan**:
+  - Dataset `tourism_rating.csv` dibagi menjadi 80% data latih dan 20% data uji.
+  - Model dilatih untuk meminimalkan RMSE antara rating prediksi dan aktual.
 
 ## Evaluasi
 Metrik evaluasi yang digunakan menggunakan RMSE
@@ -205,6 +284,27 @@ Menampilkan hasil rekomendasi untuk beberapa user dari user ID
 ![image](https://github.com/user-attachments/assets/f002ca37-8740-4c36-ad56-f402b040a66c)
 ![image](https://github.com/user-attachments/assets/7f171548-cb15-44a9-b388-33b2c3e01692)
 
+- **Hasil**:
+  - RMSE data latih menurun tajam di awal dan stabil di sekitar 0.32-0.33, menunjukkan model belajar dengan baik.
+  - RMSE data uji meningkat setelah beberapa epoch dan stabil di sekitar 0.35-0.36, mengindikasikan adanya *overfitting*.
+  - Contoh rekomendasi untuk *User_Id* 40:
+    - **Destinasi dengan rating tinggi dari pengguna**:
+      - Museum Nasional: Budaya
+      - Museum Sumpah Pemuda: Budaya
+      - Rainbow Garden: Cagar Alam
+      - Taman Legenda Keong Emas: Taman Hiburan
+      - Pantai Nguluran: Bahari
+    - **Top-10 rekomendasi**:
+      - Monumen Yogya Kembali: Budaya
+      - Jogja Bay Pirates Adventure Waterpark: Taman Hiburan
+      - Keraton Surabaya: Budaya
+      - Desa Wisata Pulesari: Taman Hiburan
+      - Pantai Wediombo: Bahari
+      - Sumur Gumuling: Taman Hiburan
+      - Hutan Mangrove Kulon Progo: Bahari
+      - Pantai Watu Kodok: Bahari
+      - Taman Spathodea: Taman Hiburan
+      - Pantai Depok Jogja: Bahari
 
 ## Kesimpulan Sistem Rekomendasi
 Proyek ini berhasil mengembangkan dua pendekatan sistem rekomendasi untuk destinasi wisata di Indonesia:
@@ -220,16 +320,20 @@ Ke depan, sistem ini dapat dikembangkan lebih lanjut dengan:
 2. Mengintegrasikan data real-time dari interaksi pengguna.
 3. Menggunakan model deep learning yang lebih kompleks seperti autoencoder atau Transformer-based recommender systems untuk akurasi lebih tinggi.
 
+### Hubungan dengan Business Understanding
+- **Problem Statement 1**: Model *content-based filtering* berhasil menyarankan destinasi berdasarkan deskripsi dan kategori, memenuhi kebutuhan untuk rekomendasi berbasis konten.
+- **Problem Statement 2**: Model *collaborative filtering* mampu mengidentifikasi preferensi pengguna dari data rating, memberikan rekomendasi personal yang relevan.
+- **Problem Statement 3**: Sistem *top-N* rekomendasi efisien, dengan waktu prediksi yang cepat (13 langkah untuk 400+ destinasi) dan hasil yang relevan berdasarkan metrik.
+- **Goals**:
+  - Model *content-based filtering* berhasil memberikan rekomendasi berdasarkan kemiripan konten, meskipun kurang personal dibandingkan *collaborative filtering*.
+  - Model *collaborative filtering* memberikan rekomendasi yang lebih personal, tetapi performanya tergantung pada jumlah data interaksi.
+  - Sistem *top-N* efisien dan relevan, cocok untuk aplikasi nyata seperti platform wisata digital.
+- **Dampak Solusi**:
+  - *Content-Based Filtering*: Efektif untuk pengguna baru (*cold-start problem*) karena tidak memerlukan data interaksi sebelumnya.
+  - *Collaborative Filtering*: Memberikan rekomendasi personal yang meningkatkan kepuasan pengguna, tetapi performanya tergantung pada jumlah data interaksi.
+  - Kombinasi kedua pendekatan dapat menciptakan sistem hibrida yang lebih robust, meningkatkan engagement dan promosi destinasi wisata.
+
 ## Referensi
 - M. F. Abdurrafi dan D. H. U. Ningsih, "Content-based filtering using cosine similarity algorithm for alternative selection on training programs," Journal of Soft Computing Exploration, vol. 4, no. 4, pp. 204-212, Desember 2023. [link](https://www.researchgate.net/publication/376963865_Content-based_filtering_using_cosine_similarity_algorithm_for_alternative_selection_on_training_programs?utm_source=chatgpt.com)
 - Kaggle Dataset – Indonesia Tourism Destination Dataset. Diakses dari: [Indonesia Tourism Destination](https://www.kaggle.com/datasets/aprabowo/indonesia-tourism-destination/data)
 - TensorFlow Documentation – Embedding Layer dan Neural Network for Recommendations: [https://www.tensorflow.org](https://www.tensorflow.org/s/results?q=Embedding%20Layer%20dan%20Neural%20Network%20for%20Recommendations)
-
-
-
-
-
-
-
-
-
