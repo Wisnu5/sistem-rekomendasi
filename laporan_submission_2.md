@@ -187,6 +187,12 @@ dengan struktur masing masing datasetnya memiliki ukuran yang berbeda
 
 ![image](https://github.com/user-attachments/assets/00474402-35f5-416c-a8ad-16d9ebd29f2c)
 
+3. Content Based Filtering Evaluasi 10 besar
+
+![image](https://github.com/user-attachments/assets/80b00eb3-8682-4163-9820-7fd960b4f4f1)
+
+Precision tinggi sistem merekomendasikan tepat dalam memilih item untuk direkomendasikan,
+namun recall sedang yang berarti ada banyak item yang relevan tidak muncul di 10 besar rekomndasi. Saran yang bisa dilakukan menambahkan fitur untuk tfidf seperti Description
 
 ## Data Preparation
 1. Mengubah PlaceID menjadi list tanpa nilai yang sama
@@ -287,24 +293,24 @@ Menampilkan hasil rekomendasi untuk beberapa user dari user ID
 - **Hasil**:
   - RMSE data latih menurun tajam di awal dan stabil di sekitar 0.32-0.33, menunjukkan model belajar dengan baik.
   - RMSE data uji meningkat setelah beberapa epoch dan stabil di sekitar 0.35-0.36, mengindikasikan adanya *overfitting*.
-  - Contoh rekomendasi untuk *User_Id* 40:
+  - Contoh rekomendasi untuk *User_Id* 45:
     - **Destinasi dengan rating tinggi dari pengguna**:
-      - Museum Nasional: Budaya
-      - Museum Sumpah Pemuda: Budaya
-      - Rainbow Garden: Cagar Alam
-      - Taman Legenda Keong Emas: Taman Hiburan
-      - Pantai Nguluran: Bahari
+      - Museum Taman Prasasti : Budaya
+      - Curug Dago : Cagar Alam
+      - Taman Film : Budaya
+      - Kampung Pelangi : Taman Hiburan
+      - Puncak Kebun Buah Mangunan : Taman Hiburan
     - **Top-10 rekomendasi**:
-      - Monumen Yogya Kembali: Budaya
-      - Jogja Bay Pirates Adventure Waterpark: Taman Hiburan
-      - Keraton Surabaya: Budaya
-      - Desa Wisata Pulesari: Taman Hiburan
-      - Pantai Wediombo: Bahari
-      - Sumur Gumuling: Taman Hiburan
-      - Hutan Mangrove Kulon Progo: Bahari
-      - Pantai Watu Kodok: Bahari
-      - Taman Spathodea: Taman Hiburan
-      - Pantai Depok Jogja: Bahari
+      - Margasatwa Muara Angke : Cagar Alam
+      - Monumen Selamat Datang : Budaya
+      - Selasar Sunaryo Art Space : Taman Hiburan
+      - Skyrink - Mall Taman Anggrek : Taman Hiburan
+      - Kampung Cina : Budaya
+      - Masjid Agung Trans Studio Bandung : Tempat Ibadah
+      - Museum Tekstil : Budaya
+      - Curug Batu Templek : Cagar Alam
+      - Teras Cikapundung BBWS : Taman Hiburan
+      - Jakarta Planetarium : Taman Hiburan
 
 ## Kesimpulan Sistem Rekomendasi
 Proyek ini berhasil mengembangkan dua pendekatan sistem rekomendasi untuk destinasi wisata di Indonesia:
