@@ -101,6 +101,42 @@ dengan struktur masing masing datasetnya memiliki ukuran yang berbeda
 ![image](https://github.com/user-attachments/assets/09ca0ae8-fe60-432a-a018-f3fb8932238d)
 ![image](https://github.com/user-attachments/assets/01d42c52-bbf3-460d-9547-07fe1a805b7c)
 
+Exploratory Data Analysis (EDA)
+1. Melihat jumlah kunjungan untuk setiap tempat wisata
+
+![image](https://github.com/user-attachments/assets/8c3057f3-0197-4923-a6d6-5c2c02a4fe2a)
+![image](https://github.com/user-attachments/assets/20694e47-a1db-4cc8-9663-7f0b708d00cd)
+
+2. Melihat jumlah kunjungan untuk setiap kategori tempat wisata
+
+![image](https://github.com/user-attachments/assets/7af8df31-9e94-43e2-8589-6e87da7d3a4d)
+![image](https://github.com/user-attachments/assets/713d8e0c-27dc-4d76-b822-385a056b63b6)
+
+3. Melihat distribusi usia
+
+![image](https://github.com/user-attachments/assets/b5c8bcc3-3a9c-4556-a692-504045454586)
+![image](https://github.com/user-attachments/assets/95c5dce4-5d01-4f1c-b638-b7c4a3dc0ab8)
+
+4. Melihat distribusi harga masuk tiap  kota
+
+![image](https://github.com/user-attachments/assets/83da445d-aa3c-4f42-a131-fba5bde44f36)
+![image](https://github.com/user-attachments/assets/a71a83bd-8847-4e2c-b24d-1ea46922f865)
+
+5. Melihat distribusi user
+
+![image](https://github.com/user-attachments/assets/b13011ce-c14c-437e-a227-36bf5d30a39b)
+![image](https://github.com/user-attachments/assets/e4a72927-01f5-4a15-b3b5-4ed6cf34da23)
+
+
+## Mendapatkan Rekomendasi
+1. Membuat fungsi rekomendasi
+
+![image](https://github.com/user-attachments/assets/fd66073f-81a8-42b0-865a-6435fe4db09f)
+
+2. Mendapatkan rekomendasi place name yang mirip dengan 'Air Mancur Menari'
+
+![image](https://github.com/user-attachments/assets/00474402-35f5-416c-a8ad-16d9ebd29f2c)
+
 ## Data Preparation
 1. Melakukan penggabungan dataset tour_info dengan tour_rate berdasarkan Place_Id
 
@@ -230,42 +266,6 @@ Collaborative Filtering
 - **Proses Pelatihan**:
   - Dataset `tourism_rating.csv` dibagi menjadi 80% data latih dan 20% data uji.
   - Model dilatih untuk meminimalkan RMSE antara rating prediksi dan aktual.
-
-
-## Exploratory Data Analysis (EDA)
-1. Melihat jumlah kunjungan untuk setiap tempat wisata
-
-![image](https://github.com/user-attachments/assets/8c3057f3-0197-4923-a6d6-5c2c02a4fe2a)
-![image](https://github.com/user-attachments/assets/20694e47-a1db-4cc8-9663-7f0b708d00cd)
-
-2. Melihat jumlah kunjungan untuk setiap kategori tempat wisata
-
-![image](https://github.com/user-attachments/assets/7af8df31-9e94-43e2-8589-6e87da7d3a4d)
-![image](https://github.com/user-attachments/assets/713d8e0c-27dc-4d76-b822-385a056b63b6)
-
-3. Melihat distribusi usia
-
-![image](https://github.com/user-attachments/assets/b5c8bcc3-3a9c-4556-a692-504045454586)
-![image](https://github.com/user-attachments/assets/95c5dce4-5d01-4f1c-b638-b7c4a3dc0ab8)
-
-4. Melihat distribusi harga masuk tiap  kota
-
-![image](https://github.com/user-attachments/assets/83da445d-aa3c-4f42-a131-fba5bde44f36)
-![image](https://github.com/user-attachments/assets/a71a83bd-8847-4e2c-b24d-1ea46922f865)
-
-5. Melihat distribusi user
-
-![image](https://github.com/user-attachments/assets/b13011ce-c14c-437e-a227-36bf5d30a39b)
-![image](https://github.com/user-attachments/assets/e4a72927-01f5-4a15-b3b5-4ed6cf34da23)
-
-## Mendapatkan Rekomendasi
-1. Membuat fungsi rekomendasi
-
-![image](https://github.com/user-attachments/assets/fd66073f-81a8-42b0-865a-6435fe4db09f)
-
-2. Mendapatkan rekomendasi place name yang mirip dengan 'Air Mancur Menari'
-
-![image](https://github.com/user-attachments/assets/00474402-35f5-416c-a8ad-16d9ebd29f2c)
 
 
 ## Evaluasi
