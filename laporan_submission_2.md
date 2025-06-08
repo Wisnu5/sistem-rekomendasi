@@ -128,15 +128,6 @@ Exploratory Data Analysis (EDA)
 ![image](https://github.com/user-attachments/assets/e4a72927-01f5-4a15-b3b5-4ed6cf34da23)
 
 
-## Mendapatkan Rekomendasi
-1. Membuat fungsi rekomendasi
-
-![image](https://github.com/user-attachments/assets/fd66073f-81a8-42b0-865a-6435fe4db09f)
-
-2. Mendapatkan rekomendasi place name yang mirip dengan 'Air Mancur Menari'
-
-![image](https://github.com/user-attachments/assets/00474402-35f5-416c-a8ad-16d9ebd29f2c)
-
 ## Data Preparation
 1. Melakukan penggabungan dataset tour_info dengan tour_rate berdasarkan Place_Id
 
@@ -266,7 +257,7 @@ Collaborative Filtering
 - **Proses Pelatihan**:
   - Dataset `tourism_rating.csv` dibagi menjadi 80% data latih dan 20% data uji.
   - Model dilatih untuk meminimalkan RMSE antara rating prediksi dan aktual.
-
+  - 
 
 ## Evaluasi
 Metrik evaluasi yang digunakan menggunakan RMSE
@@ -288,10 +279,17 @@ namun recall sedang yang berarti ada banyak item yang relevan tidak muncul di 10
 
 
 ## Mendapatkan Rekomendasi Tempat Wisata
+1. Membuat fungsi rekomendasi
+
+![image](https://github.com/user-attachments/assets/fd66073f-81a8-42b0-865a-6435fe4db09f)
+
+2. Mendapatkan rekomendasi place name yang mirip dengan 'Air Mancur Menari'
+
+![image](https://github.com/user-attachments/assets/00474402-35f5-416c-a8ad-16d9ebd29f2c)
 
 ![image](https://github.com/user-attachments/assets/ad7f7cc9-9b4d-4f82-91eb-76a2c27db831)
 
-Menampilkan hasil rekomendasi untuk beberapa user dari user ID
+3. Menampilkan hasil rekomendasi untuk beberapa user dari user ID
 
 ![image](https://github.com/user-attachments/assets/d22258b0-2f96-49aa-ad69-fc62c1eb5e79)
 ![image](https://github.com/user-attachments/assets/f002ca37-8740-4c36-ad56-f402b040a66c)
