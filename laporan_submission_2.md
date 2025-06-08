@@ -293,7 +293,8 @@ namun recall sedang yang berarti ada banyak item yang relevan tidak muncul di 10
 
 ![image](https://github.com/user-attachments/assets/d22258b0-2f96-49aa-ad69-fc62c1eb5e79)
 ![image](https://github.com/user-attachments/assets/f002ca37-8740-4c36-ad56-f402b040a66c)
-![image](https://github.com/user-attachments/assets/7f171548-cb15-44a9-b388-33b2c3e01692)
+![image](https://github.com/user-attachments/assets/2e04f17c-3c49-4d47-88db-9948b122a1c4)
+
 
 - **Hasil**:
   - RMSE data latih menurun tajam di awal dan stabil di sekitar 0.32-0.33, menunjukkan model belajar dengan baik.
