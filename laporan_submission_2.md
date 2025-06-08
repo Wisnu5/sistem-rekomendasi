@@ -101,7 +101,7 @@ dengan struktur masing masing datasetnya memiliki ukuran yang berbeda
 ![image](https://github.com/user-attachments/assets/09ca0ae8-fe60-432a-a018-f3fb8932238d)
 ![image](https://github.com/user-attachments/assets/01d42c52-bbf3-460d-9547-07fe1a805b7c)
 
-## Data Preprocessing
+## Data Preparation
 1. Melakukan penggabungan dataset tour_info dengan tour_rate berdasarkan Place_Id
 
 ![image](https://github.com/user-attachments/assets/6a5421b3-1e25-43c2-b062-5ce4ad3b1650)
@@ -125,6 +125,112 @@ dengan struktur masing masing datasetnya memiliki ukuran yang berbeda
 6. Membuat dictionary untuk data 'place_id', 'place_name', 'place_category', 'place_desc', 'place_city', 'city_category'
 
 ![image](https://github.com/user-attachments/assets/e0371778-adf4-4d1a-8a43-12e73f713d20)
+
+7. Membuat Data Sample Model Development Content Based Filtering
+
+![image](https://github.com/user-attachments/assets/a6b1bacb-fa5e-40bb-8b94-d07298e03be9)
+
+8. Insialisasi TfidfVectorizer
+
+![image](https://github.com/user-attachments/assets/4873bb1c-f13a-44a8-abb6-4e97f3aa51ee)
+
+9. Melakukan fit lalu ditransformasikan ke bentuk matrix
+
+![image](https://github.com/user-attachments/assets/7a3f90d1-450e-4a45-b58f-c2316ec0412a)
+
+10. Membuat dataframe untuk melihat tf-idf matrix
+
+![image](https://github.com/user-attachments/assets/930e24f3-1cdc-4cfb-9019-3ac2b17107fe)
+
+11. Menghitung cosine similarity pada matrix tf-idf
+
+![image](https://github.com/user-attachments/assets/e8cbf1ff-37dc-4fb3-b570-660c9bfe91b6)
+
+12. Membuat dataframe dari variabel cosine_sim dengan baris dan kolom berupa nama place
+
+![image](https://github.com/user-attachments/assets/204e3780-1a77-4480-98bc-ad7dcbee5add)
+
+13. Mengubah PlaceID menjadi list tanpa nilai yang sama untuk kebutuhan modeling content based filtering
+
+![image](https://github.com/user-attachments/assets/f7d5b2f5-f0aa-467a-a4b2-720f6420ee27)
+
+14. Mengubah userID menjadi list tanpa nilai yang sama
+
+![image](https://github.com/user-attachments/assets/fce406a0-f221-4ef0-8de7-78c355332ddb)
+
+14. Mapping User_Id dan Place_Id ke dataframe user dan place
+
+![image](https://github.com/user-attachments/assets/2f066769-a45f-4b37-a70d-80701a5a3737)
+
+15. Melihat jumlah
+
+![image](https://github.com/user-attachments/assets/6f283e79-2ab9-44ac-946a-5c7765644177)
+
+16. Mengacak dataset untuk keperluan spliting data
+
+![image](https://github.com/user-attachments/assets/4b79bc7d-b373-4b5f-930f-adc74e11df46)
+
+17. Membagi menjadi 80% data train dan 20% data test
+
+![image](https://github.com/user-attachments/assets/8481ca77-d982-4ac4-8274-46329fc2a739)
+
+Content-Based Filtering
+- **Pendekatan**: Menggunakan TF-IDF untuk mengubah deskripsi destinasi menjadi vektor, lalu menghitung *cosine similarity* untuk menemukan destinasi yang mirip.
+- **Proses**:
+  - Inisialisasi `TfidfVectorizer` untuk mengonversi kolom `Description` ke matriks TF-IDF.
+  - Menghitung *cosine similarity* antar destinasi menggunakan matriks TF-IDF.
+  - Membuat fungsi rekomendasi yang menerima nama destinasi (contoh: "Air Mancur Menari") dan mengembalikan *top-N* destinasi dengan kemiripan tertinggi.
+- **Hasil**:
+  - Untuk destinasi "Air Mancur Menari", rekomendasi yang dihasilkan mencakup destinasi dengan deskripsi serupa, seperti taman hiburan atau destinasi dengan elemen air.
+  - Contoh output:
+    - Taman Hiburan Rakyat: Taman Hiburan
+    - Taman Flora Bratang Surabaya: Taman Hiburan
+    - Taman Prestasi: Taman Hiburan
+    - Taman Buah Surabaya: Taman Hiburan
+    - Taman Barunawati: Taman Hiburan
+  - Contoh output lain untuk destinasi "Trans Studio Bandung"
+    - Kampung Batu Malakasari: Taman Hiburan
+    - Puspa Iptek Sundial: Taman Hiburan
+    - Dago Dreampark: Taman Hiburan
+    - Chingu Cafe Little Seoul: Taman Hiburan
+    - Taman Lansia: Taman Hiburan
+
+13. Memuat data tour_rate untuk Model Development dengan Collaborative Filtering
+
+![image](https://github.com/user-attachments/assets/82f44583-9441-4427-864c-d08827f81bf6)
+
+14. Proses Training
+
+![image](https://github.com/user-attachments/assets/f29cb7e7-61d7-464a-b679-a24a5464e277)
+
+15. Model menggunakan RecommenderNet
+
+![image](https://github.com/user-attachments/assets/5f0d0096-9a6a-4c64-8147-a5a01fcb4ff9)
+
+16. Menggunakan batch_size=8, epoch=100, verbose=1
+
+![image](https://github.com/user-attachments/assets/af62e189-4e76-4511-8883-dc66c6b45b63)
+
+Collaborative Filtering
+- **Pendekatan**: Menggunakan *neural network* dengan *embedding layer* untuk mempelajari representasi pengguna dan destinasi berdasarkan data rating.
+- **Struktur Model**:
+  - **Input**:
+    - *Embedding layer* untuk pengguna (dimensi: jumlah pengguna × 50).
+    - *Embedding layer* untuk destinasi (dimensi: jumlah destinasi × 50).
+  - **Lapisan**:
+    - Dua *embedding layer* untuk pengguna dan destinasi, diikuti oleh operasi *dot product* untuk menghitung skor prediksi.
+    - *Regularization* (L2) diterapkan untuk mencegah *overfitting*.
+    - Fungsi aktivasi sigmoid digunakan untuk menormalkan output ke rentang [0, 1].
+  - **Fungsi Loss**: Mean Squared Error (MSE) untuk mengukur perbedaan antara rating prediksi dan aktual.
+  - **Optimizer**: Adam dengan *learning rate* default.
+  - **Parameter Pelatihan**:
+    - *Batch size*: 8
+    - *Epochs*: 100
+    - *Verbose*: 1 (menampilkan progres pelatihan)
+- **Proses Pelatihan**:
+  - Dataset `tourism_rating.csv` dibagi menjadi 80% data latih dan 20% data uji.
+  - Model dilatih untuk meminimalkan RMSE antara rating prediksi dan aktual.
+
 
 ## Exploratory Data Analysis (EDA)
 1. Melihat jumlah kunjungan untuk setiap tempat wisata
@@ -152,32 +258,6 @@ dengan struktur masing masing datasetnya memiliki ukuran yang berbeda
 ![image](https://github.com/user-attachments/assets/b13011ce-c14c-437e-a227-36bf5d30a39b)
 ![image](https://github.com/user-attachments/assets/e4a72927-01f5-4a15-b3b5-4ed6cf34da23)
 
-## Model Development Content Based Filtering
-1. Membuat data sample
-
-![image](https://github.com/user-attachments/assets/a6b1bacb-fa5e-40bb-8b94-d07298e03be9)
-
-2. Insialisasi TfidfVectorizer
-
-![image](https://github.com/user-attachments/assets/4873bb1c-f13a-44a8-abb6-4e97f3aa51ee)
-
-3. Melakukan fit lalu ditransformasikan ke bentuk matrix
-
-![image](https://github.com/user-attachments/assets/7a3f90d1-450e-4a45-b58f-c2316ec0412a)
-
-4. Membuat dataframe untuk melihat tf-idf matrix
-
-![image](https://github.com/user-attachments/assets/930e24f3-1cdc-4cfb-9019-3ac2b17107fe)
-
-5. Menghitung cosine similarity pada matrix tf-idf
-
-![image](https://github.com/user-attachments/assets/e8cbf1ff-37dc-4fb3-b570-660c9bfe91b6)
-
-6. Membuat dataframe dari variabel cosine_sim dengan baris dan kolom berupa nama place
-
-![image](https://github.com/user-attachments/assets/204e3780-1a77-4480-98bc-ad7dcbee5add)
-
-
 ## Mendapatkan Rekomendasi
 1. Membuat fungsi rekomendasi
 
@@ -194,80 +274,6 @@ dengan struktur masing masing datasetnya memiliki ukuran yang berbeda
 Precision tinggi sistem merekomendasikan tepat dalam memilih item untuk direkomendasikan,
 namun recall sedang yang berarti ada banyak item yang relevan tidak muncul di 10 besar rekomndasi. Saran yang bisa dilakukan menambahkan fitur untuk tfidf seperti Description
 
-## Data Preparation
-1. Mengubah PlaceID menjadi list tanpa nilai yang sama
-
-![image](https://github.com/user-attachments/assets/f7d5b2f5-f0aa-467a-a4b2-720f6420ee27)
-
-2. Mengubah userID menjadi list tanpa nilai yang sama
-
-![image](https://github.com/user-attachments/assets/fce406a0-f221-4ef0-8de7-78c355332ddb)
-
-3. Mapping User_Id dan Place_Id ke dataframe user dan place
-
-![image](https://github.com/user-attachments/assets/2f066769-a45f-4b37-a70d-80701a5a3737)
-
-4. Melihat jumlah
-
-![image](https://github.com/user-attachments/assets/6f283e79-2ab9-44ac-946a-5c7765644177)
-
-5. Mengacak dataset untuk keperluan spliting data
-
-![image](https://github.com/user-attachments/assets/4b79bc7d-b373-4b5f-930f-adc74e11df46)
-
-6. Membagi menjadi 80% data train dan 20% data test
-
-![image](https://github.com/user-attachments/assets/8481ca77-d982-4ac4-8274-46329fc2a739)
-
-### 1. Content-Based Filtering
-- **Pendekatan**: Menggunakan TF-IDF untuk mengubah deskripsi destinasi menjadi vektor, lalu menghitung *cosine similarity* untuk menemukan destinasi yang mirip.
-- **Proses**:
-  - Inisialisasi `TfidfVectorizer` untuk mengonversi kolom `Description` ke matriks TF-IDF.
-  - Menghitung *cosine similarity* antar destinasi menggunakan matriks TF-IDF.
-  - Membuat fungsi rekomendasi yang menerima nama destinasi (contoh: "Air Mancur Menari") dan mengembalikan *top-N* destinasi dengan kemiripan tertinggi.
-- **Hasil**:
-  - Untuk destinasi "Air Mancur Menari", rekomendasi yang dihasilkan mencakup destinasi dengan deskripsi serupa, seperti taman hiburan atau destinasi dengan elemen air.
-  - Contoh output:
-    - Taman Srigunting: Budaya
-    - Taman Pelangi: Taman Hiburan
-    - Pantai Marina: Bahari
-
-## Model Development dengan Collaborative Filtering
-1. Memuat data tour_rate
-
-![image](https://github.com/user-attachments/assets/82f44583-9441-4427-864c-d08827f81bf6)
-
-2. Proses Training
-
-![image](https://github.com/user-attachments/assets/f29cb7e7-61d7-464a-b679-a24a5464e277)
-
-3. Model menggunakan RecommenderNet
-
-![image](https://github.com/user-attachments/assets/5f0d0096-9a6a-4c64-8147-a5a01fcb4ff9)
-
-4. Menggunakan batch_size=8, epoch=100, verbose=1
-
-![image](https://github.com/user-attachments/assets/af62e189-4e76-4511-8883-dc66c6b45b63)
-
-### 2. Collaborative Filtering
-- **Pendekatan**: Menggunakan *neural network* dengan *embedding layer* untuk mempelajari representasi pengguna dan destinasi berdasarkan data rating.
-- **Struktur Model**:
-  - **Input**:
-    - *Embedding layer* untuk pengguna (dimensi: jumlah pengguna × 50).
-    - *Embedding layer* untuk destinasi (dimensi: jumlah destinasi × 50).
-  - **Lapisan**:
-    - Dua *embedding layer* untuk pengguna dan destinasi, diikuti oleh operasi *dot product* untuk menghitung skor prediksi.
-    - *Regularization* (L2) diterapkan untuk mencegah *overfitting*.
-    - Fungsi aktivasi sigmoid digunakan untuk menormalkan output ke rentang [0, 1].
-  - **Fungsi Loss**: Mean Squared Error (MSE) untuk mengukur perbedaan antara rating prediksi dan aktual.
-  - **Optimizer**: Adam dengan *learning rate* default.
-  - **Parameter Pelatihan**:
-    - *Batch size*: 8
-    - *Epochs*: 100
-    - *Verbose*: 1 (menampilkan progres pelatihan)
-- **Proses Pelatihan**:
-  - Dataset `tourism_rating.csv` dibagi menjadi 80% data latih dan 20% data uji.
-  - Model dilatih untuk meminimalkan RMSE antara rating prediksi dan aktual.
 
 ## Evaluasi
 Metrik evaluasi yang digunakan menggunakan RMSE
