@@ -267,13 +267,6 @@ Collaborative Filtering
 
 ![image](https://github.com/user-attachments/assets/00474402-35f5-416c-a8ad-16d9ebd29f2c)
 
-3. Content Based Filtering Evaluasi 10 besar
-
-![image](https://github.com/user-attachments/assets/80b00eb3-8682-4163-9820-7fd960b4f4f1)
-
-Precision tinggi sistem merekomendasikan tepat dalam memilih item untuk direkomendasikan,
-namun recall sedang yang berarti ada banyak item yang relevan tidak muncul di 10 besar rekomndasi. Saran yang bisa dilakukan menambahkan fitur untuk tfidf seperti Description
-
 
 ## Evaluasi
 Metrik evaluasi yang digunakan menggunakan RMSE
@@ -285,6 +278,14 @@ Metrik evaluasi yang digunakan menggunakan RMSE
 1. Visualisasi metrik menggunakan RMSE
 
 ![image](https://github.com/user-attachments/assets/e4834a6f-7476-4f8a-a0a6-1495ac5b2767)
+
+2. Content Based Filtering Evaluasi 10 besar
+
+![image](https://github.com/user-attachments/assets/80b00eb3-8682-4163-9820-7fd960b4f4f1)
+
+Precision tinggi sistem merekomendasikan tepat dalam memilih item untuk direkomendasikan,
+namun recall sedang yang berarti ada banyak item yang relevan tidak muncul di 10 besar rekomndasi. Saran yang bisa dilakukan menambahkan fitur untuk tfidf seperti Description
+
 
 ## Mendapatkan Rekomendasi Tempat Wisata
 
