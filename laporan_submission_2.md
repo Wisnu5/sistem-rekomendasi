@@ -263,25 +263,6 @@ Collaborative Filtering
   - Dataset `tourism_rating.csv` dibagi menjadi 80% data latih dan 20% data uji.
   - Model dilatih untuk meminimalkan RMSE antara rating prediksi dan aktual.
 
-## Evaluasi
-Metrik evaluasi yang digunakan menggunakan RMSE
-**RMSE** adalah akar kuadrat dari rata-rata kuadrat selisih antara nilai prediksi dan nilai aktual. Metrik ini mengukur seberapa besar rata-rata kesalahan kuadrat prediksi model, memberikan gambaran tentang seberapa jauh prediksi menyimpang dari data sebenarnya. 
-**Rumus**
-
-![image](https://github.com/user-attachments/assets/304a2057-aa65-4e48-bb3f-9f1070aa61d5)
-
-1. Visualisasi metrik menggunakan RMSE
-
-![image](https://github.com/user-attachments/assets/e4834a6f-7476-4f8a-a0a6-1495ac5b2767)
-
-2. Content Based Filtering Evaluasi 10 besar
-
-![image](https://github.com/user-attachments/assets/80b00eb3-8682-4163-9820-7fd960b4f4f1)
-
-Precision tinggi sistem merekomendasikan tepat dalam memilih item untuk direkomendasikan,
-namun recall sedang yang berarti ada banyak item yang relevan tidak muncul di 10 besar rekomndasi. Saran yang bisa dilakukan menambahkan fitur untuk tfidf seperti Description
-
-
 ## Mendapatkan Rekomendasi Tempat Wisata
 1. Membuat fungsi rekomendasi
 
@@ -299,6 +280,24 @@ namun recall sedang yang berarti ada banyak item yang relevan tidak muncul di 10
 ![image](https://github.com/user-attachments/assets/f002ca37-8740-4c36-ad56-f402b040a66c)
 ![image](https://github.com/user-attachments/assets/2e04f17c-3c49-4d47-88db-9948b122a1c4)
 
+
+## Evaluasi
+Metrik evaluasi yang digunakan menggunakan RMSE
+**RMSE** adalah akar kuadrat dari rata-rata kuadrat selisih antara nilai prediksi dan nilai aktual. Metrik ini mengukur seberapa besar rata-rata kesalahan kuadrat prediksi model, memberikan gambaran tentang seberapa jauh prediksi menyimpang dari data sebenarnya. 
+**Rumus**
+
+![image](https://github.com/user-attachments/assets/304a2057-aa65-4e48-bb3f-9f1070aa61d5)
+
+1. Visualisasi metrik menggunakan RMSE
+
+![image](https://github.com/user-attachments/assets/e4834a6f-7476-4f8a-a0a6-1495ac5b2767)
+
+2. Content Based Filtering Evaluasi 10 besar
+
+![image](https://github.com/user-attachments/assets/80b00eb3-8682-4163-9820-7fd960b4f4f1)
+
+Precision tinggi sistem merekomendasikan tepat dalam memilih item untuk direkomendasikan,
+namun recall sedang yang berarti ada banyak item yang relevan tidak muncul di 10 besar rekomndasi. Saran yang bisa dilakukan menambahkan fitur untuk tfidf seperti Description
 
 - **Hasil**:
   - RMSE data latih menurun tajam di awal dan stabil di sekitar 0.32-0.33, menunjukkan model belajar dengan baik.
