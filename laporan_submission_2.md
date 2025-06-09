@@ -220,6 +220,17 @@ Exploratory Data Analysis (EDA)
 ## Modeling
 #### Content-Based Filtering: Menggunakan teknik TF-IDF dan cosine similarity untuk menganalisis deskripsi destinasi wisata. Pendekatan ini efektif dalam merekomendasikan tempat-tempat yang memiliki kemiripan konten, seperti kategori dan lokasi, meskipun tanpa data interaksi pengguna sebelumnya.
 
+Mendapatkan Rekomendasi Tempat Wisata
+1. Membuat fungsi rekomendasi
+
+![image](https://github.com/user-attachments/assets/fd66073f-81a8-42b0-865a-6435fe4db09f)
+
+2. Mendapatkan rekomendasi place name yang mirip dengan 'Air Mancur Menari'
+
+![image](https://github.com/user-attachments/assets/00474402-35f5-416c-a8ad-16d9ebd29f2c)
+
+![image](https://github.com/user-attachments/assets/ad7f7cc9-9b4d-4f82-91eb-76a2c27db831)
+
 Content-Based Filtering
 - **Pendekatan**: Menggunakan TF-IDF untuk mengubah deskripsi destinasi menjadi vektor, lalu menghitung *cosine similarity* untuk menemukan destinasi yang mirip.
 - **Proses**:
@@ -243,6 +254,12 @@ Content-Based Filtering
 
 #### Collaborative Filtering berbasis Neural Network: Memanfaatkan embedding pengguna dan item dalam model neural network untuk menangkap preferensi pengguna berdasarkan histori interaksi. Pendekatan ini mampu memberikan rekomendasi yang lebih personal dan relevan, terutama ketika tersedia data interaksi yang cukup.
 
+3. Menampilkan hasil rekomendasi untuk beberapa user dari user ID
+
+![image](https://github.com/user-attachments/assets/d22258b0-2f96-49aa-ad69-fc62c1eb5e79)
+![image](https://github.com/user-attachments/assets/f002ca37-8740-4c36-ad56-f402b040a66c)
+![image](https://github.com/user-attachments/assets/2e04f17c-3c49-4d47-88db-9948b122a1c4)
+
 Collaborative Filtering
 - **Pendekatan**: Menggunakan *neural network* dengan *embedding layer* untuk mempelajari representasi pengguna dan destinasi berdasarkan data rating.
 - **Struktur Model**:
@@ -262,23 +279,6 @@ Collaborative Filtering
 - **Proses Pelatihan**:
   - Dataset `tourism_rating.csv` dibagi menjadi 80% data latih dan 20% data uji.
   - Model dilatih untuk meminimalkan RMSE antara rating prediksi dan aktual.
-
-## Mendapatkan Rekomendasi Tempat Wisata
-1. Membuat fungsi rekomendasi
-
-![image](https://github.com/user-attachments/assets/fd66073f-81a8-42b0-865a-6435fe4db09f)
-
-2. Mendapatkan rekomendasi place name yang mirip dengan 'Air Mancur Menari'
-
-![image](https://github.com/user-attachments/assets/00474402-35f5-416c-a8ad-16d9ebd29f2c)
-
-![image](https://github.com/user-attachments/assets/ad7f7cc9-9b4d-4f82-91eb-76a2c27db831)
-
-3. Menampilkan hasil rekomendasi untuk beberapa user dari user ID
-
-![image](https://github.com/user-attachments/assets/d22258b0-2f96-49aa-ad69-fc62c1eb5e79)
-![image](https://github.com/user-attachments/assets/f002ca37-8740-4c36-ad56-f402b040a66c)
-![image](https://github.com/user-attachments/assets/2e04f17c-3c49-4d47-88db-9948b122a1c4)
 
 
 ## Evaluasi
