@@ -201,6 +201,25 @@ Exploratory Data Analysis (EDA)
 
 ![image](https://github.com/user-attachments/assets/8481ca77-d982-4ac4-8274-46329fc2a739)
 
+13. Memuat data tour_rate untuk Model Development dengan Collaborative Filtering
+
+![image](https://github.com/user-attachments/assets/82f44583-9441-4427-864c-d08827f81bf6)
+
+14. Proses Training
+
+![image](https://github.com/user-attachments/assets/f29cb7e7-61d7-464a-b679-a24a5464e277)
+
+15. Model menggunakan RecommenderNet
+
+![image](https://github.com/user-attachments/assets/5f0d0096-9a6a-4c64-8147-a5a01fcb4ff9)
+
+16. Menggunakan batch_size=8, epoch=100, verbose=1
+
+![image](https://github.com/user-attachments/assets/af62e189-4e76-4511-8883-dc66c6b45b63)
+
+## Modeling
+#### Content-Based Filtering: Menggunakan teknik TF-IDF dan cosine similarity untuk menganalisis deskripsi destinasi wisata. Pendekatan ini efektif dalam merekomendasikan tempat-tempat yang memiliki kemiripan konten, seperti kategori dan lokasi, meskipun tanpa data interaksi pengguna sebelumnya.
+
 Content-Based Filtering
 - **Pendekatan**: Menggunakan TF-IDF untuk mengubah deskripsi destinasi menjadi vektor, lalu menghitung *cosine similarity* untuk menemukan destinasi yang mirip.
 - **Proses**:
@@ -222,21 +241,7 @@ Content-Based Filtering
     - Chingu Cafe Little Seoul: Taman Hiburan
     - Taman Lansia: Taman Hiburan
 
-13. Memuat data tour_rate untuk Model Development dengan Collaborative Filtering
-
-![image](https://github.com/user-attachments/assets/82f44583-9441-4427-864c-d08827f81bf6)
-
-14. Proses Training
-
-![image](https://github.com/user-attachments/assets/f29cb7e7-61d7-464a-b679-a24a5464e277)
-
-15. Model menggunakan RecommenderNet
-
-![image](https://github.com/user-attachments/assets/5f0d0096-9a6a-4c64-8147-a5a01fcb4ff9)
-
-16. Menggunakan batch_size=8, epoch=100, verbose=1
-
-![image](https://github.com/user-attachments/assets/af62e189-4e76-4511-8883-dc66c6b45b63)
+#### Collaborative Filtering berbasis Neural Network: Memanfaatkan embedding pengguna dan item dalam model neural network untuk menangkap preferensi pengguna berdasarkan histori interaksi. Pendekatan ini mampu memberikan rekomendasi yang lebih personal dan relevan, terutama ketika tersedia data interaksi yang cukup.
 
 Collaborative Filtering
 - **Pendekatan**: Menggunakan *neural network* dengan *embedding layer* untuk mempelajari representasi pengguna dan destinasi berdasarkan data rating.
@@ -257,7 +262,6 @@ Collaborative Filtering
 - **Proses Pelatihan**:
   - Dataset `tourism_rating.csv` dibagi menjadi 80% data latih dan 20% data uji.
   - Model dilatih untuk meminimalkan RMSE antara rating prediksi dan aktual.
-  - 
 
 ## Evaluasi
 Metrik evaluasi yang digunakan menggunakan RMSE
@@ -320,11 +324,6 @@ namun recall sedang yang berarti ada banyak item yang relevan tidak muncul di 10
 
 ## Kesimpulan Sistem Rekomendasi
 Proyek ini berhasil mengembangkan dua pendekatan sistem rekomendasi untuk destinasi wisata di Indonesia:
-
-Content-Based Filtering: Menggunakan teknik TF-IDF dan cosine similarity untuk menganalisis deskripsi destinasi wisata. Pendekatan ini efektif dalam merekomendasikan tempat-tempat yang memiliki kemiripan konten, seperti kategori dan lokasi, meskipun tanpa data interaksi pengguna sebelumnya.
-
-Collaborative Filtering berbasis Neural Network: Memanfaatkan embedding pengguna dan item dalam model neural network untuk menangkap preferensi pengguna berdasarkan histori interaksi. Pendekatan ini mampu memberikan rekomendasi yang lebih personal dan relevan, terutama ketika tersedia data interaksi yang cukup.
-
 Evaluasi menggunakan metrik RMSE menunjukkan bahwa model collaborative filtering dengan neural network memberikan performa yang lebih baik dalam memprediksi preferensi pengguna dibandingkan pendekatan content-based.
 
 Ke depan, sistem ini dapat dikembangkan lebih lanjut dengan:
